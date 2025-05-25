@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppHotel.Views.HospedagemContratada"
+             Title="Resumo da Hospedagem"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor ="DarkTurquoise">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Label Text="Resumo da Contratação"
+                   FontSize="24"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"
+                   TextColor="DarkBlue" />
+
+            <Label Text="{Binding QuartoSelecionado.Descricao}" FontSize="20" />
+
+            <Label Text="{Binding QtdeAdultos, StringFormat='Adultos: {0}'}" />
+            <Label Text="{Binding QtdeCriancas, StringFormat='Crianças: {0}'}" />
+            <Label Text="{Binding DataCheckin, StringFormat='Check-in: {0:dd/MM/yyyy}'}" />
+            <Label Text="{Binding DataCheckout, StringFormat='Check-out: {0:dd/MM/yyyy}'}" />
+            <Label Text="{Binding TotalDiarias, StringFormat='Total de Diárias: {0}'}" />
+            <Label Text="{Binding ValorTotal, StringFormat='Valor Total: R$ {0:F2}'}"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   TextColor="DarkGreen" />
+
+            <Button Text="Voltar" Clicked="OnVoltarClicked" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
