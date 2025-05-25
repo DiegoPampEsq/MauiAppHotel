@@ -4,12 +4,10 @@
              x:Class="MauiAppHotel.Views.HospedagemContratada"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="#F0F4F8">
-    <!-- Azul-claro acinzentado -->
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="20">
 
-            <!-- Título -->
             <Label Text="Resumo da Hospedagem"
                    FontSize="32"
                    FontFamily="Kalam"
@@ -17,7 +15,6 @@
                    TextColor="#2C3E50"
                    HorizontalTextAlignment="Center" />
 
-            <!-- Descrição da Suíte -->
             <Frame BackgroundColor="White"
                    CornerRadius="15"
                    Padding="15"
@@ -29,7 +26,6 @@
                        HorizontalTextAlignment="Center" />
             </Frame>
 
-            <!-- Adultos e Crianças -->
             <Frame BackgroundColor="White"
                    CornerRadius="15"
                    Padding="15"
@@ -54,7 +50,6 @@
                 </Grid>
             </Frame>
 
-            <!-- Período da Estadia -->
             <Frame BackgroundColor="White"
                    CornerRadius="15"
                    Padding="15"
@@ -82,7 +77,6 @@
                 </Grid>
             </Frame>
 
-            <!-- Valor total -->
             <Frame BackgroundColor="#EAF2F8"
                    CornerRadius="15"
                    Padding="15"
@@ -98,7 +92,6 @@
                 </HorizontalStackLayout>
             </Frame>
 
-            <!-- Botão Voltar -->
             <Button Text="Voltar"
                     Clicked="OnVoltarClicked"
                     BackgroundColor="#2980B9"
