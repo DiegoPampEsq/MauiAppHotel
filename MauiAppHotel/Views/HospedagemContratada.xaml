@@ -2,31 +2,112 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppHotel.Views.HospedagemContratada"
-             Title="Resumo da Hospedagem"
              NavigationPage.HasNavigationBar="False"
-             BackgroundColor ="DarkTurquoise">
+             BackgroundColor="#F0F4F8">
+    <!-- Azul-claro acinzentado -->
 
     <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="15">
-            <Label Text="Resumo da Contratação"
-                   FontSize="24"
-                   HorizontalOptions="Center"
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <!-- Título -->
+            <Label Text="Resumo da Hospedagem"
+                   FontSize="32"
+                   FontFamily="Kalam"
                    FontAttributes="Bold"
-                   TextColor="DarkBlue" />
+                   TextColor="#2C3E50"
+                   HorizontalTextAlignment="Center" />
 
-            <Label Text="{Binding QuartoSelecionado.Descricao}" FontSize="20" />
+            <!-- Descrição da Suíte -->
+            <Frame BackgroundColor="White"
+                   CornerRadius="15"
+                   Padding="15"
+                   HasShadow="True">
+                <Label Text="{Binding QuartoSelecionado.Descricao}"
+                       FontSize="24"
+                       TextColor="#2980B9"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center" />
+            </Frame>
 
-            <Label Text="{Binding QtdeAdultos, StringFormat='Adultos: {0}'}" />
-            <Label Text="{Binding QtdeCriancas, StringFormat='Crianças: {0}'}" />
-            <Label Text="{Binding DataCheckin, StringFormat='Check-in: {0:dd/MM/yyyy}'}" />
-            <Label Text="{Binding DataCheckout, StringFormat='Check-out: {0:dd/MM/yyyy}'}" />
-            <Label Text="{Binding TotalDiarias, StringFormat='Total de Diárias: {0}'}" />
-            <Label Text="{Binding ValorTotal, StringFormat='Valor Total: R$ {0:F2}'}"
-                   FontSize="18"
-                   FontAttributes="Bold"
-                   TextColor="DarkGreen" />
+            <!-- Adultos e Crianças -->
+            <Frame BackgroundColor="White"
+                   CornerRadius="15"
+                   Padding="15"
+                   HasShadow="True">
+                <Grid ColumnDefinitions="*,*"
+                      RowDefinitions="Auto"
+                      ColumnSpacing="20">
 
-            <Button Text="Voltar" Clicked="OnVoltarClicked" />
+                    <HorizontalStackLayout>
+                        <Label Text="Adultos: "
+                               FontAttributes="Bold" />
+                        <Label Text="{Binding QtdeAdultos}"
+                               TextColor="#16A085" />
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout Grid.Column="1">
+                        <Label Text="Crianças: "
+                               FontAttributes="Bold" />
+                        <Label Text="{Binding QtdeCriancas}"
+                               TextColor="#16A085" />
+                    </HorizontalStackLayout>
+                </Grid>
+            </Frame>
+
+            <!-- Período da Estadia -->
+            <Frame BackgroundColor="White"
+                   CornerRadius="15"
+                   Padding="15"
+                   HasShadow="True">
+                <Grid ColumnDefinitions="*,*,*"
+                      RowDefinitions="Auto,Auto"
+                      ColumnSpacing="10"
+                      RowSpacing="5">
+
+                    <Label Grid.Row="0" Grid.Column="0" Text="Check-in:" FontAttributes="Bold" />
+                    <Label Grid.Row="0" Grid.Column="1" Text="Check-out:" FontAttributes="Bold" />
+                    <Label Grid.Row="0" Grid.Column="2" Text="Estadia:" FontAttributes="Bold" />
+
+                    <Label Grid.Row="1" Grid.Column="0"
+                           Text="{Binding DataCheckin, StringFormat='{}{0:dd/MM/yyyy}'}"
+                           TextColor="#34495E" />
+
+                    <Label Grid.Row="1" Grid.Column="1"
+                           Text="{Binding DataCheckout, StringFormat='{}{0:dd/MM/yyyy}'}"
+                           TextColor="#34495E" />
+
+                    <Label Grid.Row="1" Grid.Column="2"
+                           Text="{Binding TotalDiarias, StringFormat='{}{0} noites'}"
+                           TextColor="#34495E" />
+                </Grid>
+            </Frame>
+
+            <!-- Valor total -->
+            <Frame BackgroundColor="#EAF2F8"
+                   CornerRadius="15"
+                   Padding="15"
+                   HasShadow="True">
+                <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Spacing="5">
+                    <Label Text="Valor Total:"
+                           FontSize="18"
+                           FontAttributes="Bold" />
+                    <Label Text="{Binding ValorTotal, StringFormat='R$ {0:F2}'}"
+                           FontSize="18"
+                           TextColor="#27AE60"
+                           FontAttributes="Bold" />
+                </HorizontalStackLayout>
+            </Frame>
+
+            <!-- Botão Voltar -->
+            <Button Text="Voltar"
+                    Clicked="OnVoltarClicked"
+                    BackgroundColor="#2980B9"
+                    TextColor="White"
+                    CornerRadius="12"
+                    FontAttributes="Bold"
+                    HeightRequest="50"
+                    HorizontalOptions="Center" />
+
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
